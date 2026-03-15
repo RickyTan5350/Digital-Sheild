@@ -376,8 +376,15 @@ footer {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* --- Premium Persona Selector --- */
@@ -391,7 +398,7 @@ footer {
     gap: 12px;
     overflow-x: auto;
     padding: 5px 5px 15px 5px;
-    scrollbar-width: none; 
+    scrollbar-width: none;
 }
 
 .persona-grid::-webkit-scrollbar {
@@ -491,7 +498,7 @@ footer {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     padding: 3px;
     border: 2px solid transparent;
     transition: all 0.3s ease;
@@ -542,4 +549,4 @@ footer {
     visibility: visible;
     opacity: 1;
     transform: translateX(-50%) translateY(0);
-}
+}

@@ -158,7 +158,7 @@ def analyze_with_score(request, fraud_score):
     INSTRUCTIONS:
     1. Explain based on data AND the risk score.
     2. Provide a 'Security Tip'.
-    3. Keep it under 60 words.
+    3. Keep it under 100 words.
     
     Format:
     Analysis: [Why it's {risk_level.lower()} risk]

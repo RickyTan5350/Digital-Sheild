@@ -85,7 +85,7 @@
         "risk": "high",
         "description": "High-risk signals: 4 AM access, low device trust, new location, and travel category.",
         "features": [
-            10000.0,
+            2500.0,
             4.0,
             1,
             1,

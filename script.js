@@ -19,7 +19,7 @@ async function initPersonas() {
             `;
             chip.onclick = () => selectPersona(persona, chip);
             grid.appendChild(chip);
-            
+
             // Auto-select first persona
             if (index === 0) selectPersona(persona, chip);
         });
@@ -38,7 +38,7 @@ function selectPersona(persona, chipElement) {
 
     // Update UI Form
     document.getElementById('amount').value = currentFeatures[0];
-    
+
     // Reverse select merchant category
     const categoryIndex = currentFeatures.slice(7, 12).indexOf(1);
     if (categoryIndex !== -1) {
@@ -63,7 +63,7 @@ document.getElementById('protect-btn').addEventListener('click', async () => {
     // Sync form values into currentFeatures just in case user edited them
     currentFeatures[0] = parseFloat(document.getElementById('amount').value) || 0;
     currentFeatures[1] = new Date().getHours() + (new Date().getMinutes() / 60); // Current time
-    
+
     const merchant = parseFloat(document.getElementById('merchant').value);
     // Reset categories
     for (let i = 7; i < 12; i++) currentFeatures[i] = 0;
