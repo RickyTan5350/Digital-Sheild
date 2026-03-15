@@ -104,8 +104,11 @@ def predict(request: PredictionRequest):
         except Exception as e:
             print(f"Local model prediction failed: {e}")
 
+    # Scale up the fraud probability to make results more visible in the UI
+    fraud_score = min(float(fraud_score) * 10.0, 0.99)
+
     # 3. Decision
-    status = "Rejected" if fraud_score >= 0.05 else "Approved"
+    status = "Rejected" if fraud_score >= 0.3 else "Approved"
 
     return {
         "fraud_score": float(fraud_score),

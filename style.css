@@ -407,13 +407,14 @@ footer {
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
-    overflow: hidden;
-    min-width: 160px;
+    /* overflow: hidden; Removed to allow tooltip to display outside bounds */
+    min-width: 140px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    gap: 10px;
 }
 
 .persona-chip:hover {
@@ -448,7 +449,25 @@ footer {
     font-weight: 900;
     padding: 2px 8px;
     border-bottom-left-radius: 8px;
+    border-top-right-radius: 18px;
     letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+.persona-chip.medium::after {
+    content: 'MEDIUM RISK';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #ffaa00;
+    color: white;
+    font-size: 0.5rem;
+    font-weight: 900;
+    padding: 2px 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 18px;
+    letter-spacing: 0.5px;
+    z-index: 2;
 }
 
 .persona-chip.low::after {
@@ -462,5 +481,65 @@ footer {
     font-weight: 900;
     padding: 2px 8px;
     border-bottom-left-radius: 8px;
+    border-top-right-radius: 18px;
     letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+/* Avatar Styling */
+.persona-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    padding: 3px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.persona-chip.active .persona-avatar {
+    border-color: var(--primary);
+    background: rgba(0, 242, 255, 0.2);
+}
+
+/* Tooltip Styling */
+.persona-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    width: 220px;
+    background-color: rgba(5, 10, 21, 0.95);
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 12px 14px;
+    position: absolute;
+    z-index: 10;
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    font-weight: 400;
+}
+
+.persona-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgba(0, 242, 255, 0.3) transparent transparent transparent;
+}
+
+.persona-chip:hover .persona-tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }

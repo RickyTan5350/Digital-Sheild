@@ -13,7 +13,9 @@ async function initPersonas() {
             // Add 'high' or 'low' class based on persona.risk
             chip.className = `persona-chip ${persona.risk || 'low'}`;
             chip.innerHTML = `
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(persona.name)}&backgroundColor=b6e3f4" alt="${persona.name}" class="persona-avatar" />
                 <span class="persona-name">${persona.name}</span>
+                <div class="persona-tooltip">${persona.description}</div>
             `;
             chip.onclick = () => selectPersona(persona, chip);
             grid.appendChild(chip);
