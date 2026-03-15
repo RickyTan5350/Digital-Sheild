@@ -1,0 +1,7 @@
+.env
+__pycache__/
+.venv/
+*.pkl
+*.bst
+*.txt
+*.js.map

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Shield | Transaction Protection</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="shield-icon">🛡️</span>
+                <h1>Digital Shield</h1>
+            </div>
+            <p class="subtitle">AI-Powered Fraud Detection Engine</p>
+        </header>
+
+        <main>
+            <div class="personas-section">
+                <label>Quick Test Personas</label>
+                <div id="persona-grid" class="persona-grid">
+                    <!-- Personas will be loaded here -->
+                </div>
+            </div>
+
+            <div class="glass-card transaction-form">
+                <h2>New Transaction</h2>
+                <div class="form-group">
+                    <label for="amount">Transaction Amount ($)</label>
+                    <input type="number" id="amount" placeholder="e.g. 500" value="10000">
+                </div>
+
+                <div class="form-group">
+                    <label for="merchant">Merchant Category</label>
+                    <select id="merchant">
+                        <option value="1">Clothing & Fashion</option>
+                        <option value="2">Electronics & Tech</option>
+                        <option value="3">Food & Dining</option>
+                        <option value="4">Grocery & Daily Needs</option>
+                        <option value="5">Travel & Luxury</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Internal Intelligence</label>
+                    <div class="intelligence-grid">
+                        <div class="intel-item">
+                            <span class="label">Device Trust</span>
+                            <span id="v-device-trust" class="value">9000</span>
+                        </div>
+                        <div class="intel-item">
+                            <span class="label">IP Risk Score</span>
+                            <span id="v-ip-risk" class="value">-5.1</span>
+                        </div>
+                        <div class="intel-item">
+                            <span class="label">Location Diff</span>
+                            <span id="v-location" class="value">6.1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="protect-btn" class="primary-btn">
+                    <span class="btn-text">Shield Transaction</span>
+                    <span class="loader hidden"></span>
+                </button>
+            </div>
+
+            <div id="result-overlay" class="result-overlay hidden">
+                <div class="result-card glass-card">
+                    <div id="result-status-icon" class="status-icon"></div>
+                    <h2 id="result-title">Analyzing...</h2>
+                    <p id="result-desc"></p>
+
+                    <div class="score-container">
+                        <div class="score-label">Fraud Probability Score</div>
+                        <div class="progress-bar">
+                            <div id="score-fill" class="progress-fill"></div>
+                        </div>
+                        <div id="score-val" class="score-value">0%</div>
+                    </div>
+
+                    <div id="ai-guidance-box" class="ai-guidance-container hidden">
+                        <h4>🛡️ AI Security Guidance</h4>
+                        <div id="ai-guidance-text" class="guidance-content">
+                            Analyzing patterns...
+                        </div>
+                    </div>
+
+                    <button id="reset-btn" class="secondary-btn">New Protection</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Digital Shield Intelligence. Secure. Encrypted. AI-Driven.</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

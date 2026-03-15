@@ -1,0 +1,102 @@
+[
+    {
+        "id": "persona_1",
+        "name": "Dmitry (Loyal User)",
+        "risk": "low",
+        "description": "Long-term customer making a routine purchase from a trusted device at home.",
+        "features": [
+            120.0,
+            14.5,
+            0,
+            0,
+            0.98,
+            0.2,
+            45,
+            0,
+            0,
+            0,
+            1,
+            0
+        ]
+    },
+    {
+        "id": "persona_2",
+        "name": "Sophia (Overseas Luxury)",
+        "risk": "high",
+        "description": "Sudden high-value transfer from a foreign IP with mismatched location data.",
+        "features": [
+            5000.0,
+            10.0,
+            1,
+            1,
+            0.4,
+            2.0,
+            32,
+            0,
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "id": "persona_3",
+        "name": "Kevin (Late-Night Snacker)",
+        "risk": "low",
+        "description": "Student ordering food from a known device, consistent with history.",
+        "features": [
+            15.5,
+            2.5,
+            0,
+            0,
+            0.95,
+            1.1,
+            19,
+            0,
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "id": "persona_4",
+        "name": "Alex (Velocity Attack)",
+        "risk": "medium",
+        "description": "Attempting 22 small transactions within minutes on an untrusted shared tablet.",
+        "features": [
+            10.0,
+            16.0,
+            0,
+            0,
+            0.15,
+            22.0,
+            12,
+            0,
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": "persona_5",
+        "name": "Ghost (Identity Anomaly)",
+        "risk": "high",
+        "description": "High-risk signals: 4 AM access, low device trust, new location, and travel category.",
+        "features": [
+            2500.0,
+            4.0,
+            1,
+            1,
+            0.05,
+            5.0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            1
+        ]
+    }
+]
