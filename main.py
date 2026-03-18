@@ -67,6 +67,8 @@ except Exception as e:
 
 class PredictionRequest(BaseModel):
     features: list[float]
+    history: list[str] = []
+    recipient: str = ""
 
 @app.post("/predict")
 def predict(request: PredictionRequest):
@@ -144,19 +146,25 @@ def analyze_with_score(request, fraud_score):
     ]
     
     tx_summary = "\n".join([f"- {l}: {v}" for l, v in zip(labels, request.features)])
+    history_str = "\n".join([f"- {h}" for h in request.history]) if request.history else "None"
     risk_level = "High" if fraud_score > 0.5 else "Medium" if fraud_score > 0.1 else "Low"
     
     prompt = f"""
     You are 'Digital Shield AI', a security specialist.
-    Analyze this transaction and provide a concise explanation + security tip.
+    Analyze this money transfer transaction and provide a concise explanation + security tip.
     
-    DATA:
+    TRANSACTION TARGET: {request.recipient}
+    
+    CURRENT TRANSACTION DATA:
     {tx_summary}
+    
+    USER TRANSACTION HISTORY:
+    {history_str}
     
     AI RISK ASSESSMENT: {risk_level} (Score: {fraud_score:.4f})
     
     INSTRUCTIONS:
-    1. Explain based on data AND the risk score.
+    1. Explain based on data, transaction history, recipient, AND the risk score.
     2. Provide a 'Security Tip'.
     3. Keep it under 100 words.
     

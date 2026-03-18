@@ -19,7 +19,7 @@
         <header>
             <div class="logo">
                 <span class="shield-icon">🛡️</span>
-                <h1>Digital Shield</h1>
+                <h1>Digital Shield Wallet</h1>
             </div>
             <p class="subtitle">AI-Powered Fraud Detection Engine</p>
         </header>
@@ -33,9 +33,13 @@
             </div>
 
             <div class="glass-card transaction-form">
-                <h2>New Transaction</h2>
+                <h2>New Transfer</h2>
                 <div class="form-group">
-                    <label for="amount">Transaction Amount ($)</label>
+                    <label for="recipient">Transfer To</label>
+                    <input type="text" id="recipient" placeholder="Recipient username or wallet">
+                </div>
+                <div class="form-group">
+                    <label for="amount">Transfer Amount ($)</label>
                     <input type="number" id="amount" placeholder="e.g. 500" value="10000">
                 </div>
 
@@ -69,7 +73,7 @@
                 </div>
 
                 <button id="protect-btn" class="primary-btn">
-                    <span class="btn-text">Shield Transaction</span>
+                    <span class="btn-text">Start Transaction</span>
                     <span class="loader hidden"></span>
                 </button>
             </div>
@@ -95,13 +99,13 @@
                         </div>
                     </div>
 
-                    <button id="reset-btn" class="secondary-btn">New Protection</button>
+                    <button id="reset-btn" class="secondary-btn">New Transaction</button>
                 </div>
             </div>
         </main>
 
         <footer>
-            <p>&copy; 2026 Digital Shield Intelligence. Secure. Encrypted. AI-Driven.</p>
+            <p>&copy; 2026 Digital Shield Intelligence Wallet. Secure. Encrypted. AI-Driven.</p>
         </footer>
     </div>
 

@@ -35,9 +35,11 @@ function selectPersona(persona, chipElement) {
 
     // Update global state
     currentFeatures = [...persona.features];
+    window.currentHistory = persona.transaction_history || [];
 
     // Update UI Form
     document.getElementById('amount').value = currentFeatures[0];
+    document.getElementById('recipient').value = persona.default_recipient || '';
 
     // Reverse select merchant category
     const categoryIndex = currentFeatures.slice(7, 12).indexOf(1);
@@ -81,7 +83,11 @@ document.getElementById('protect-btn').addEventListener('click', async () => {
         const response = await fetch('/shield', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ features: currentFeatures })
+            body: JSON.stringify({
+                features: currentFeatures,
+                history: window.currentHistory,
+                recipient: document.getElementById('recipient').value || 'Unknown'
+            })
         });
 
         const data = await response.json();
@@ -118,16 +124,22 @@ async function showResult(data, features) {
 
     if (data.transaction_status === 'Approved') {
         statusIcon.innerText = '✅';
-        title.innerText = 'Transaction Approved';
+        title.innerText = 'Transfer Approved';
         title.style.color = 'var(--success)';
-        desc.innerText = 'Digital Shield verified this transaction as secure.';
+        desc.innerText = 'Digital Shield verified this transfer as secure.';
         scoreFill.style.background = 'var(--success)';
+
+        guidanceBox.className = 'ai-guidance-container approved';
+        guidanceBox.querySelector('h4').innerHTML = '🛡️ AI Security Guidance';
     } else {
         statusIcon.innerText = '🚫';
-        title.innerText = 'Transaction Rejected';
+        title.innerText = 'Transfer Rejected';
         title.style.color = 'var(--danger)';
-        desc.innerText = 'Potential threat detected. Access has been restricted.';
+        desc.innerText = 'Potential threat detected. Transfer has been restricted.';
         scoreFill.style.background = 'var(--danger)';
+
+        guidanceBox.className = 'ai-guidance-container rejected pop-out';
+        guidanceBox.querySelector('h4').innerHTML = '⚠️ CRITICAL AI ALERT';
     }
 
     overlay.classList.remove('hidden');
